@@ -8,7 +8,7 @@ from typing import Optional
 import os
 import urllib.parse
 from dotenv import load_dotenv  
-
+from fastapi.middleware.cors import CORSMiddleware
 load_dotenv()
 
 # ==========================================
