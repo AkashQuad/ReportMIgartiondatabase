@@ -97,6 +97,16 @@ class JobResponse(BaseModel):
 # ==========================================
 app = FastAPI(title="Migration Tracker API")
 
+
+# 2. Add this exact block right below app = FastAPI(...)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"], # Allows all frontends to connect (perfect for testing)
+    allow_credentials=True,
+    allow_methods=["*"], # Allows GET, POST, PUT, DELETE
+    allow_headers=["*"],
+)
+
 def get_db():
     db = SessionLocal()
     try:
